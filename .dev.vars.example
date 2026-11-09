@@ -1,0 +1,4 @@
+APP_PASSWORD=dev-password
+SESSION_SECRET=change-me-to-a-long-random-string
+MCP_SECRET=dev-mcp-secret
+API_TOKEN=dev-api-token

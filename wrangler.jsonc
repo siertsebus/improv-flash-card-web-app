@@ -1,0 +1,32 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "improv-flashcards",
+	"main": "src/worker/index.ts",
+	"compatibility_date": "2026-10-01",
+	"rules": [
+		{
+			"type": "Text",
+			"globs": [
+				"**/*.md"
+			],
+			"fallthrough": true
+		}
+	],
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": [
+			"/api/*",
+			"/mcp/*"
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "improv-db",
+			// Replace with the id printed by `npx wrangler d1 create improv-db` before deploying.
+			"database_id": "b3c9f83f-f42d-42cb-be02-e91a4c01d392",
+			"migrations_dir": "migrations"
+		}
+	]
+}
